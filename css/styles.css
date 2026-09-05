@@ -381,7 +381,7 @@ main {
     left: 50%;
     transform: translate(-50%, -65%);
 
-    background-image: url("../resources/diamond.svg");
+    background-image: url("../resources/images/diamond.svg");
     background-repeat: no-repeat;
     background-size: cover;
 
