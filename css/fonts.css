@@ -1,0 +1,210 @@
+/* :root { */
+/*     --weight: 800; */
+/* } */
+
+.font-elsie {
+  font-family: "Elsie", serif;
+  /* font-weight: 400; */
+  font-style: normal;
+}
+
+.font-bricolage-grotesque {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: var(--weight); */
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.font-domine {
+  font-family: "Domine", serif;
+  font-optical-sizing: auto;
+  /* font-weight: var(--weight); */
+  font-style: normal;
+}
+
+.font-playfair-display {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  /* font-weight: var(--weight); */
+  font-style: normal;
+}
+
+.font-lora {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  /* font-weight: var(--weight); */
+  font-style: normal;
+}
+
+.font-abril-fatface {
+  font-family: "Abril Fatface", serif;
+  /* font-weight: var(--weight); */
+  font-style: normal;
+}
+
+.font-bodoni-moda {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  /* font-weight: var(--weight); */
+  font-style: normal;
+}
+
+.font-merriweather {
+  font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  /* font-weight: var(--weight); */
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.font-eb-garamond {
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  /* font-weight: var(--weight); */
+  font-style: normal;
+}
+
+.font-ultra {
+  font-family: "Ultra", serif;
+  /* font-weight: 400; */
+  font-style: normal;
+}
+
+.font-alfa-slab-one {
+  font-family: "Alfa Slab One", serif;
+  /* font-weight: 400; */
+  font-style: normal;
+}
+
+.font-yellowtail {
+  font-family: "Yellowtail", cursive;
+  /* font-weight: 400; */
+  font-style: normal;
+}
+
+.font-lobster {
+  font-family: "Lobster", sans-serif;
+  /* font-weight: 400; */
+  font-style: normal;
+}
+
+.font-oswald {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  font-style: normal;
+}
+
+.font-bebas-neue {
+  font-family: "Bebas Neue", sans-serif;
+  /* font-weight: 400; */
+  font-style: normal;
+}
+
+.font-special-elite {
+  font-family: "Special Elite", system-ui;
+  /* font-weight: 400; */
+  font-style: normal;
+}
+
+.font-anton {
+  font-family: "Anton", sans-serif;
+  /* font-weight: 400; */
+  font-style: normal;
+}
+
+.font-courier-prime {
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-courier-prime-bold {
+  font-family: "Courier Prime", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.font-courier-prime-regular-italic {
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.font-courier-prime-bold-italic {
+  font-family: "Courier Prime", monospace;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* https://www.1001fonts.com/alte-schwabacher-font.html */
+@font-face {
+    font-family: "Alte Schwabacher";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../resources/fonts/alte-schwabacher.osf-demibold.ttf")
+}
+
+.font-alte-schwabacher {
+    font-family: "Alte Schwabacher";
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* https://www.fontspace.com/machton-font-f113745 */
+@font-face {
+    font-family: "Machton";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../resources/fonts/Machton-zrrlG.ttf");
+}
+.font-machton {
+    font-family: "Machton";
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* https://www.fontspace.com/yardley-font-f70106 */
+@font-face {
+    font-family: "Yardley";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../resources/fonts/YardleyPersonalUse-RpeM6.ttf");
+}
+
+.font-yardley {
+    font-family: "Yardley";
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* https://www.1001fonts.com/bandosa-font.html */
+@font-face {
+    font-family: "Bandosa";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../resources/fonts/bandosa.regular.ttf");
+}
+
+.font-bandosa {
+    font-family: "Bandosa";
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* https://www.1001fonts.com/cooper-hewitt-font.html */
+@font-face {
+    font-family: "Cooper Hewitt";
+    font-style: normal;
+    font-weight: 900;
+    src: url("../resources/fonts/cooper-hewitt.heavy.otf");
+}
+
+.font-cooper-hewitt {
+    font-family: "Cooper Hewitt";
+    font-style: normal;
+    font-weight: 900;
+}

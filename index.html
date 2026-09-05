@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <title>Gaucho Sports Analytics Club</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Domine:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Elsie:wght@400;900&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Alfa+Slab+One&family=Anton&family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Lobster&family=Oswald:wght@200..700&family=Special+Elite&family=Ultra&family=Yellowtail&display=swap" rel="stylesheet">
+
+    <script src="js/jquery.js" defer></script>
+    <script src="js/bezier.js" defer></script>
+    <script src="js/utils.js"  defer></script>
+
+    <script src="js/main.js"   defer></script>
+  </head>
+  <body>
+    <img src='resources/images/bg.gif' class='bg-image' />
+    <div class='bg-image'></div>
+    <div class="bg-solid"></div>
+    <!-- <img src="resources/images/solid.png" class="bg-solid" /> -->
+    <header class='header'>
+      <div class='header-container'>
+	<div class='header-left'>
+	  <img src='resources/images/logo-solid.svg' class='logo' />
+	  <h1 class="gsac"> GSAC </h1>
+	</div>
+	<div class='header-right'>
+	  <a class="header-link caption" href="./index.html"> Home </a>
+	  <a class="header-link caption" href="./index.html"> About </a>
+	  <a class="header-link caption" href="https://discord.gg/HXHkWrxn6d"> Join Us </a>
+	  <a class="header-link caption" href="./index.html"> Our Work </a>
+	  <a class="header-link caption" href="./index.html"> People </a>
+	</div>
+      </div>
+    </header>
+    <main>
+      <div class="hero">
+	<h1 class='banner font-playfair-display'>
+	  Be a Part of <br/>
+	  <span class="gaucho"> Something Big </span>
+	</h1>
+	<p class='caption text font-eb-garamond'>
+	  Work with collegiate sports teams at UCSB to provide analytical
+	  insights. <br/> Real data. Real teams. Real impact.
+	</p>
+	<div class="more-button-container">
+	  <a class="btn join-btn" href="./index.html"> Get Involved </a>
+	  <div class="btn-spacing"></div>
+	  <a class="btn showcase-btn" id="test" href="./index.html"> See Our Work </a>
+	</div>
+      </div>
+      <div class="card">
+	<div class="card-container">
+	  <div class="card-left">
+	    <div class="card-left-top">
+	      <div class="card-left-top-container">
+		<div class="card-left-top-secondary font-oswald">
+		  <h3> Henley Hall 1010 </h3>
+		</div>
+		<div class="card-left-top-primary font-oswald">
+		  <h1> <strong>S</strong>anta <strong>B</strong>arbara <br/>
+		    <strong>C</strong>atering <strong>C</strong>o </h1>
+		</div>
+		<div class="card-left-top-secondary font-oswald">
+		  <h3> 'Sometimes we have Pizza' </h3>
+		</div>
+	      </div>
+	    </div>
+	    <div class="card-left-middle">
+	      <div class="card-big-west-line font-ultra">
+		<h3> We've Got it <i>All</i> </h3>
+	      </div>
+	      <div class="card-big-west-line bw1 font-anton">
+		<h2> <strong> D1 Atheletics </strong> </h2>
+	      </div>
+	      <div class="card-big-west-line bw2 font-anton">
+		<h2> Industry Insiders </h2>
+	      </div>
+	      <div class="card-big-west-line bw3 font-anton">
+		<h2> Workshops </h2> <!-- TODO: Better wording -->
+	      </div>
+	      <div class="card-big-west-line bw4 font-ultra">
+		<h3> Come to a <br/> meating</h3>
+	      </div>
+	      <img class="card-big-west" src="resources/images/big_west.png" />
+	    </div>
+	    <div class="card-left-bottom">
+	      <div class="mallards-bg">
+		<div class="mallards-diamond font-courier-prime">
+		  <h3 class="mallards"> it's always <br/> <u>better</u> when we're <br/> <u>together</u> </h3>
+		</div>
+		<h1 class="mallards"> Mallards </h1>
+		<img class="mallards-box" src="resources/images/mallards.svg"/>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="card-center">
+	    <div class="card-center-top-top">
+	      <div class="card-center-top-top-left">
+		<h1 class="card-open font-yardley"> Open to Everyone&lt </h1>
+		<p class="card-welcome font-anton"> EVEN DODGERS AND SEAHAWKS FANS ARE WELCOME </p>
+	      </div>
+	      <div class="card-center-top-top-right">
+		<img class="card-gsac" src="resources/images/logo.svg" />
+	      </div>
+	    </div>
+	    <div class="card-center-top">
+	      <h1 class="font-alfa-slab-one"> Gaucho Sports Analytics </h1>
+	      <!-- <h1 class="font-anton"> Gaucho Sports Analytics </h1> -->
+	      <!-- <h1 class="font-alte-schwabacher"> Gaucho Sports Analytics </h1> -->
+	    </div>
+	    <div class="card-center-middle">
+	      <table class="ledger font-special-elite">
+		<tr>
+		  <th><strong> GSAC x </strong></th>
+		  <th class="check"> F </th>
+		  <th class="check"> W </th>
+		  <th class="check"> S </th>
+		  <th> Project </th>
+		  <th> Status </th>
+		</tr>
+              </table>
+	      <div class="lineups">
+		<div class="lineup-column font-special-elite lineup-bar"></div>
+		<div class="lineup-column font-special-elite lineup-bar"></div>
+		<div class="lineup-column font-special-elite lineup-bar"></div>
+		<div class="lineup-column font-special-elite"></div>
+	      </div>
+	    </div>
+	    <div class="card-center-bottom">
+	      <img class="card-kcsb" src="resources/images/kcsb.png" />
+	      <p class="card-kcsb-sloagan1 font-merriweather"> Campus Radio </p>
+	      <p class="card-kcsb-sloagan2 font-lobster"> California Spirit </p>
+	    </div>
+	  </div>
+	  <div class="card-right">
+	    <div class="card-right-top font-alfa-slab-one">
+	      <h3> " The Best In The West " </h3>
+	      <img class="card-gauchos" src="resources/images/gaucho.png" />
+	    </div>
+	    <div class="card-right-middle">
+	      <div class="card-right-middle-border">
+		<div class="card-right-middle-box flex-down">
+		  <h3 class="have-glass font-bebas-neue"> Have a glass, or two, or three... </h3>
+		  <h1 class="chi-5 font-bandosa"> Chi-5 </h1>
+		  <h2 class="iv-own font-eb-garamond"> Isla Vista's Own </h2>
+		</div>
+	      </div>
+	    </div>
+	    <div class="card-right-bottom">
+	      <!-- TODO: make balls have actuall ball texture -->
+	      <div class="balls">
+		<div class="ball"><p> base-<br/>ball </p></div>
+		<div class="ball"></div>
+		<div class="ball"><p> basket-<br/>ball </p></div>
+	      </div>
+	      <div class="work-with">
+		<p class="font-cooper-hewitt"> Work With The </p>
+		<h1 class="font-cooper-hewitt"> GAUCHOS </h1>
+	      </div>
+	      <div class="balls">
+		<div class="ball"></div>
+		<div class="ball"><p> soccer </p></div>
+		<div class="ball"></div>
+	      </div>
+	    </div>
+	  </div>
+	</div class="card-container">
+      </div>
+      <div class="more-content">
+	<img class="wave" src="resources/images/wave.svg" />
+	<div class="more-content-container"></div>
+      </div>
+    </main>
+  </body>
+</html>
