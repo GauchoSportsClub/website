@@ -101,8 +101,10 @@ header {
     color: inherit;
     text-decoration: none;
     width: fit-content;
-    padding: 0px !important;
     text-align: center;
+    /* padding: 10px !important; */
+    /* border-radius: 50%; */
+    /* background-color: rgb(var(--background)); */
 }
 
 main {
@@ -683,7 +685,7 @@ th.check, td.check {
 .more-content {
     position: relative;
     z-index: 300;
-    /* margin-top: -7vh; */
+    margin-top: calc((100vh - 75vh) / 2);
 }
 
 .wave {
@@ -695,9 +697,9 @@ th.check, td.check {
 }
 
 .more-content-container {
-    background-color: rgb(var(--background));
+    /* background-color: rgb(var(--background)); */
     padding-bottom: 10vh;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
 
     display: flex;
@@ -712,4 +714,159 @@ th.check, td.check {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* WARNING: AI */
+
+/* --- THE SHADOWBOX CONTAINER --- */
+.project-board {
+    /* width: 90vw; */
+    /* width: 100%; */
+    min-width: 85vw;
+    max-width: 90vw;
+    /* max-width: 1300px; */
+    min-height: 80vh;
+    background-color: #2b3a32; /* Dark green felt */
+    background-color: #2b303a;
+    border: 30px solid #160905; /* Dark wood frame */
+    border-radius: 5px;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.8), 10px 10px 30px rgba(0,0,0,0.6);
+    /* gap: 40px; */
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+/* --- NEWSPAPER CLIPPING BASE --- */
+.news-clipping {
+    background-color: #eaddc5; /* Aged newsprint */
+    color: #1a1a1a;
+    padding: 15px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.4);
+    /* border: 1px solid #c7b89e; */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.news-clipping:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.6);
+    z-index: 10;
+}
+
+/* --- TEMPLATE 1: THE FEATURE --- */
+.template-feature {
+    width: 100%;
+    max-width: 700px;
+}
+.template-feature .news-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    line-height: 1.1em;
+    font-weight: 900;
+    text-align: center;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.template-feature .news-body {
+    column-count: 2;
+    column-gap: 25px;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1em;
+    line-height: 1.4em;
+    text-align: justify;
+}
+.template-feature .news-body::first-letter {
+    float: left;
+    font-family: 'Cooper Hewitt', serif;
+    font-size: 4em;
+    line-height: 0.8em;
+    padding-right: 8px;
+    padding-top: 4px;
+}
+
+/* --- TEMPLATE 2: SIMPLE --- */
+.template-simple {
+    width: 100%;
+    max-width: 450px;
+}
+.template-simple .news-headline {
+    text-align: center;
+    font-family: 'Cooper Hewitt', serif;
+    font-size: 2.2em;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+.template-simple .news-body {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.15em;
+    line-height: 1.5em;
+    text-align: justify;
+}
+
+/* --- TEMPLATE 3: THE ANALYTICAL COLUMN --- */
+.template-column {
+    width: 100%;
+    max-width: 240px;
+}
+.template-column .news-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 10px 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.template-column .news-body {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05em;
+    line-height: 1.4em;
+    text-align: justify;
+}
+.template-column .pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.3em;
+    text-align: center;
+    margin: 15px 0;
+    padding: 10px;
+    border-left: 4px solid #1a1a1a;
+    background: rgba(0,0,0,0.05);
+}
+
+
+/* IMAGE */
+.template-image {
+    padding: 5px;
+    border: none;
+}
+
+.news-image {
+    max-width: 20vw;
+    filter: grayscale(1)
+	    contrast(1.3)
+	    brightness(0.9)
+	    sepia(0.35);
 }

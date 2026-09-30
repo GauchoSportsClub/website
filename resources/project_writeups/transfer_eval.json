@@ -1,0 +1,6 @@
+{
+    "title": "Transfer Player Evaluation",
+    "lead": "Joey",
+    "team": "UCSB Baseball",
+    "body": "In our transfer player evaluation project, we set out to quantify lower-league hitters' \"readiness\" to transition to D1 baseball using the limited statistics available at the D2, D3, and JUCO levels. We built this tool by pulling and cleaning historical data on successfully transitioned players to train a Random Forest model. Doing so allowed us to project a transferring player's D1 xwOBA and output a 0-100 readiness score based on their production, discipline, and durability. We delivered an interactive dashboard that allows lesser-known players to be evaluated and filtered into division leaderboards."
+}
