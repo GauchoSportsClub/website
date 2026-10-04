@@ -733,51 +733,94 @@ th.check, td.check {
 
 
 
+/* 90% AI From here :) */
+/* I'm a prompt warrior */
 
-
-
-/* WARNING: AI */
 
 /* --- THE SHADOWBOX CONTAINER --- */
 .project-board {
-    /* width: 90vw; */
-    /* width: 100%; */
     min-width: 85vw;
     max-width: 90vw;
-    /* max-width: 1300px; */
     min-height: 80vh;
-    background-color: #2b3a32; /* Dark green felt */
     background-color: #2b303a;
-    border: 30px solid #160905; /* Dark wood frame */
+    border: 30px solid #160905;
     border-radius: 5px;
     box-shadow: inset 0 0 30px rgba(0,0,0,0.8), 10px 10px 30px rgba(0,0,0,0.6);
-    /* gap: 40px; */
-    padding: 50px;
+    padding: 30px;
     box-sizing: border-box;
+
+    /* THE NEW GRID LAYOUT (1fr = small side, 2fr = wide middle, 1fr = small side) */
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+    gap: 30px;
 }
 
-/* --- NEWSPAPER CLIPPING BASE --- */
+/* Stack into a single vertical column on narrow displays */
+@media (max-width: 1000px) {
+    .project-board {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* --- THE FLEX COLUMNS --- */
+.board-col {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 40px; /* This is the vertical space between clippings! */
+}
+
+/* --- 1. THE OUTER WRAPPER --- */
+/* Removes Packery sizing, lets it fill the Flex column perfectly */
 .news-clipping {
-    background-color: #eaddc5; /* Aged newsprint */
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* --- 2. THE INNER CLIPPING --- */
+.clipping-inner {
+    background-color: #eaddc5;
     color: #1a1a1a;
-    padding: 15px;
+    padding: 20px;
     box-shadow: 2px 3px 10px rgba(0,0,0,0.4);
-    /* border: 1px solid #c7b89e; */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-.news-clipping:hover {
+.clipping-inner:hover {
     transform: scale(1.05) rotate(0deg) !important;
     box-shadow: 5px 10px 20px rgba(0,0,0,0.6);
     z-index: 10;
+    position: relative;
+}
+
+.template-image .clipping-inner {
+    padding: 10px;
+    background-color: #f4f1ea;
+}
+
+
+/* --- TEMPLATE STYLES --- */
+/* Remove explicit max-widths so they stretch fluidly into the Packery percentages */
+.template-feature, .template-simple, .template-column, .template-image,
+.template-plaque {
+    max-width: none;
+}
+
+/* Images fill 100% of their fluid inner container */
+.news-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(1) contrast(1.3) brightness(0.9) sepia(0.35);
 }
 
 /* --- TEMPLATE 1: THE FEATURE --- */
-.template-feature {
-    width: 100%;
-    max-width: 700px;
-}
 .template-feature .news-headline {
     font-family: 'Playfair Display', serif;
     font-size: 3em;
@@ -790,7 +833,7 @@ th.check, td.check {
     text-transform: uppercase;
 }
 .template-feature .news-body {
-    column-count: 2;
+    column-count: 2; /* Restore 2 columns now that the container is wider! */
     column-gap: 25px;
     font-family: 'EB Garamond', serif;
     font-size: 1.1em;
@@ -807,10 +850,6 @@ th.check, td.check {
 }
 
 /* --- TEMPLATE 2: SIMPLE --- */
-.template-simple {
-    width: 100%;
-    max-width: 450px;
-}
 .template-simple .news-headline {
     text-align: center;
     font-family: 'Cooper Hewitt', serif;
@@ -826,10 +865,6 @@ th.check, td.check {
 }
 
 /* --- TEMPLATE 3: THE ANALYTICAL COLUMN --- */
-.template-column {
-    width: 100%;
-    max-width: 240px;
-}
 .template-column .news-headline {
     font-family: 'Playfair Display', serif;
     font-size: 1.8em;
@@ -845,28 +880,67 @@ th.check, td.check {
     line-height: 1.4em;
     text-align: justify;
 }
-.template-column .pull-quote {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.3em;
+
+
+
+
+/* --- TEMPLATE 5: BLACK & GOLD BRASS PLAQUE --- */
+.template-plaque .clipping-inner {
+    /* Dark charcoal/black matte metal finish */
+    background-image: linear-gradient(135deg, #111 0%, #2a2a2a 100%);
+    background-color: #1a1a1a; 
+    border: 2px solid #000;
+    border-radius: 8px;
+    box-shadow: inset 1px 1px 2px rgba(255,255,255,0.15), inset -1px -1px 3px rgba(0,0,0,0.8), 5px 8px 15px rgba(0,0,0,0.6);
+}
+
+.plaque-border {
+    border: 2px solid #d4af37; /* Gold border line */
+    border-radius: 4px;
+    padding: 35px 20px;
+    position: relative;
     text-align: center;
-    margin: 15px 0;
-    padding: 10px;
-    border-left: 4px solid #1a1a1a;
-    background: rgba(0,0,0,0.05);
+    box-shadow: inset 1px 1px 0px rgba(255,255,255,0.1), inset -1px -1px 0px rgba(0,0,0,0.5), 1px 1px 0px rgba(255,255,255,0.1), -1px -1px 0px rgba(0,0,0,0.5);
 }
 
-
-/* IMAGE */
-.template-image {
-    padding: 5px;
-    border: none;
+.plaque-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2em;
+    font-weight: 900;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #d4af37; /* Metallic Gold Text */
+    /* Dark inner shadow, soft gold outer glow */
+    text-shadow: -1px -1px 2px rgba(0,0,0,1), 1px 1px 2px rgba(0,0,0,1), 0 0 8px rgba(212,175,55,0.25);
+    line-height: 1.1em;
 }
 
-.news-image {
-    max-width: 20vw;
-    filter: grayscale(1)
-	    contrast(1.3)
-	    brightness(0.9)
-	    sepia(0.35);
+.plaque-subtitle {
+    font-family: 'EB Garamond', serif;
+    font-size: 2em;
+    font-style: italic;
+    margin: 0;
+    color: #d4af37;
+    text-shadow: -1px -1px 1px rgba(0,0,0,1), 1px 1px 1px rgba(0,0,0,1);
 }
+
+.plaque-border .screw {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(135deg, #7c5c00, #d4af37);
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.7), 1px 1px 1px rgba(255,255,255,0.1);
+}
+
+/* Maintain the exact same screw slot code from before below this... */
+.plaque-border .screw::after { content: ''; position: absolute; top: 50%; left: 10%; width: 80%; height: 2px; background: rgba(0,0,0,0.7); transform-origin: center; }
+.screw.top-left { top: 10px; left: 10px; }
+.screw.top-left::after { transform: translateY(-50%) rotate(15deg); }
+.screw.top-right { top: 10px; right: 10px; }
+.screw.top-right::after { transform: translateY(-50%) rotate(-40deg); }
+.screw.bottom-left { bottom: 10px; left: 10px; }
+.screw.bottom-left::after { transform: translateY(-50%) rotate(75deg); }
+.screw.bottom-right { bottom: 10px; right: 10px; }
+.screw.bottom-right::after { transform: translateY(-50%) rotate(-10deg); }

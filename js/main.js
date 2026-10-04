@@ -149,24 +149,32 @@ for (let i = 0; i < num_cols; ++i) {
 
 const past_projects = [
     {
-	type: "feature",
-	title: "Mastering Goal Kicks",
-	author: "JOE GAUCHO",
-	date: "February 2026",
-	content: `Building explosive strength and distance off the tee requires more than just leg power. Resistance bands and bodyweight movements unlock new kinetic chains. Our recent breakdown highlights equipment-free techniques tailored for goalkeepers. Focusing on hip mobility and strike-point acceleration, these targeted exercises drastically improve downfield distribution accuracy during rapid counter-attacks.`
-    },
-    {
 	type: "image",
+	col: "left",
 	src: "./resources/images/jackson_flora.jpg",
-	width: "17vw",
+    },
+    {
+	type: "plaque",
+	col: "center",
+	title: "Project Showcase",
+	subtitle: "Gaucho Sports Analytics"
     },
     {
 	type: "image",
+	col: "right",
 	src: "./resources/images/basketball.jpg",
-	width: "19vw",
+    },
+    {
+	type: "simple",
+	col: "left",
+	title: "Analysing Pitch Decay",
+	author: "JOE GAUCHO",
+	date: "May 2026",
+	content: `We set out on this project with a goal of quantifying the concept of "Pitch Decay," where a pitcher's expected run prevention drops due to batter familiarity despite their pitch quality remaining constant. We conducted this study by analyzing college data to quantify the Time Through the Order Penalty (TTOP) and hitter familiarity with specific pitch types. In doing so, we discovered a twist, the pitch decay that pitchers suffer in professional baseball doesn't actually have a meaningful effect on the college game. We concluded this is likely due to college starters having shorter outings and facing a completely different competitive landscape.`
     },
     {
 	type: "feature",
+	col: "center",
 	title: "Soccer Computer Vision Pipeline ",
 	author: "JOE GAUCHO",
 	date: "June 2026",
@@ -187,14 +195,8 @@ To improve temporal consistency, a separate player-processing pipeline was built
 Overall, the project showed how strongly sports computer vision models depend on the distribution of their training data. Rather than relying entirely on models trained on cleaner broadcast footage, we collected and annotated data representative of UCSB soccer games, retrained the underlying detectors, and tested different approaches for making player and pitch detections more stable over time.`
     },
     {
-	type: "simple",
-	title: "Analysing Pitch Decay",
-	author: "JOE GAUCHO",
-	date: "May 2026",
-	content: `We set out on this project with a goal of quantifying the concept of "Pitch Decay," where a pitcher's expected run prevention drops due to batter familiarity despite their pitch quality remaining constant. We conducted this study by analyzing college data to quantify the Time Through the Order Penalty (TTOP) and hitter familiarity with specific pitch types. In doing so, we discovered a twist, the pitch decay that pitchers suffer in professional baseball doesn't actually have a meaningful effect on the college game. We concluded this is likely due to college starters having shorter outings and facing a completely different competitive landscape.`
-    },
-    {
 	type: "column",
+	col: "right",
 	title: "Transfer Player Evaluation",
 	author: "JOE GAUCHO",
 	date: "February 2026",
@@ -202,23 +204,33 @@ Overall, the project showed how strongly sports computer vision models depend on
     },
     {
 	type: "image",
+	col: "left",
 	src: "./resources/images/soccer_celebration.jpg",
-	width: "24vw",
     },
     {
-	type: "simple",
-	title: "Predicting The 2026 Pitch: A Monte Carlo Simulation",
-	author: "JOE GAUCHO",
-	date: "May 2026",
-	content: `Applying custom Elo ratings and regression models to international datasets provides a unique window into future tournament outcomes. By structuring a 45-to-60-minute interactive workshop, we established a pipeline utilizing Poisson distributions to simulate match frequencies and potential upsets. This statistical modeling allows us to run thousands of bracket permutations, identifying edge cases and mathematically probable underdogs long before the first whistle blows on the global stage.`
+	type: "image",
+	col: "right",
+	src: "./resources/images/baseball.jpg",
     },
+    // {
+	// type: "simple",
+	// col: "left",
+	// title: "Predicting The 2026 Pitch: A Monte Carlo Simulation",
+	// author: "JOE GAUCHO",
+	// date: "May 2026",
+	// content: `Applying custom Elo ratings and regression models to international datasets provides a unique window into future tournament outcomes. By structuring a 45-to-60-minute interactive workshop, we established a pipeline utilizing Poisson distributions to simulate match frequencies and potential upsets. This statistical modeling allows us to run thousands of bracket permutations, identifying edge cases and mathematically probable underdogs long before the first whistle blows on the global stage.`
+    // },
+    // {
+	// type: "image",
+	// src: "./resources/images/soccer_celebration.jpg",
+    // },
 ];
 // shuffle(past_projects);
 
 const clipping_templates = {
     feature: (project) => `
 		<div class="news-headline">${project.title}</div>
-		<div style="font-style: italic; margin-bottom: 10px;">by: ${project.author} - published: ${project.date}</div>
+		<!-- <div style="font-style: italic; margin-bottom: 10px;">by: ${project.author} - published: ${project.date}</div> -->
 		<div class="news-body">${project.content}</div>
 	    `,
     simple: (project) => `
@@ -232,9 +244,19 @@ const clipping_templates = {
 		</div>
 	    `,
     image: (project) => `
-		<img src=${project.src} class='news-image' style="max-width: ${random(15, 25)}vw" />
+		<img src=${project.src} class='news-image'  />
 	    `,
-}
+    plaque: (project) => `
+	<div class="plaque-border">
+	    <div class="screw top-left"></div>
+	    <div class="screw top-right"></div>
+	    <div class="screw bottom-left"></div>
+	    <div class="screw bottom-right"></div>
+	    <h1 class="plaque-title">${project.title}</h1>
+	    <h2 class="plaque-subtitle">${project.subtitle}</h2>
+	</div>
+    `,
+};
 
 function create_clipping_content(project)
 {
@@ -255,22 +277,16 @@ function render_clippings() {
 	const random_angle = random(-3, 3);
 	const clipping = $("<div>", {
 	    class: `news-clipping template-${project.type}`,
-	    html: create_clipping_content(project),
-	    css: { "transform": `rotate(${random_angle}deg)` },
+	    html: `<div class="clipping-inner" style="transform: rotate(${random_angle}deg)">
+		       ${create_clipping_content(project)}
+		   </div>`
 	});
-	board.append(clipping);
+	board.find(`.col-${project.col}`).append(clipping);
     };
-
-    $('.project-board').packery({
-	itemSelector: '.news-clipping',
-	columnWidth: '.template-simple',
-	// percentPosition: true,
-	// gutter: 5,
-	fitWidth: true,
-    });
 }
 
 // Call the function to build the board
 $(document).ready(function() {
     render_clippings();
 });
+
