@@ -4,9 +4,8 @@
     --gold: 255, 184, 0;
     --light-blue: 146, 197, 252;
     --dark-blue: 2, 13, 25;
-    /* --background: 29, 31, 33; */
-    /* --background: 31, 33, 35;	/\*ellipsus*\/ */
     --background: 24, 26, 27;	/*notion*/
+    --background-lighter: 30, 32, 33;
 
     --card: 216, 198, 160;	/*#d8c6a0*/
     --ink: 30, 27, 22;		/*#1e1b16*/
@@ -18,6 +17,7 @@
 
 html {
     overscroll-behavior: contain;
+    background-color: rgb(var(--background));
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -27,49 +27,50 @@ h1, h2, h3, h4, h5, h6, p {
 body {
     /* height: 100%; */
     /* overflow: auto; */
+    /* position: absolute; */
     margin: 0px;
     border: 0px;
     padding: 0px;
 }
 
 .bg-image {
-    position: fixed;
+    /* display: block; */
+    position: absolute;
     z-index: -990;
     top: 0%;
     left: 0%;
     width: 100vw;
     height: auto;
-    filter: brightness(67%) contrast(80%);
-}
-
-div.bg-image {
-    z-index: -980;
-    background-color: rgba(var(--background), 0.33);
-    height: 100vh;
+    min-height: 100vh;
+    min-width: 100vw;
+    filter: brightness(45%) contrast(80%);
+    background-repeat: repeat;
 }
 
 .bg-solid {
-    position: fixed;
+    position: absolute;
     z-index: -100;
-    top: 0%;
+    top: 100%;
     left: 0%;
     width: 100vw;
-    height: 100vh;
+    height: 37.5vh;
+    /* background-image: linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, rgba(var(--background-lighter), 1) 75%, rgba(var(--background-lighter), 1) 100%); */
     background-color: rgb(var(--background));
-    opacity: 0%;
+    /* opacity: 0%; */
 }
 
 header {
     position: sticky;
     top: 0;
     z-index: 999;
+    background-color: rgb(var(--background));
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 5vh;
+    height: 3.5vh;
     padding:   2vh;
     /* padding-bottom: 1vh; */
     /* padding-left:  2vh; */
@@ -116,10 +117,11 @@ main {
 }
 
 .hero {
-    position: fixed;
-    top:  40vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
+    margin-top: 40vh;
+    /* position: relative; */
+    /* top:  40vh; */
+    /* left: 50vw; */
+    transform: translate(0, -75%);
     z-index: 100;
     text-align: center;
 }
@@ -143,13 +145,6 @@ main {
     margin: 0%;
     padding: 0.5em;
 }
-
-/* .centered { */
-    /* position: absolute; */
-    /* top:  25%; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
-/* } */
 
 .gaucho {
     text-decoration: underline rgb(var(--gold)) solid 0.033em;
@@ -187,11 +182,11 @@ main {
 }
 
 .card {
-    position: sticky;
-    top: calc((100vh - 75vh) / 2);
-    z-index: 200;
+    /* position: relative; */
+    /* top: calc((100vh - 75vh) / 2); */
+    /* z-index: 200; */
 
-    margin-top: 70vh;
+    /* margin-top: 70vh; */
     height: 75vh;
     aspect-ratio: 1.618;
     border-radius: 1.5vw;
@@ -208,7 +203,7 @@ main {
 /* With a little help from Chat, vintage card effect overlay */
 .card::after {
     content: "";
-    position: absolute;
+    /* position: absolute; */
     z-index: 299;
     inset: 0;
     border-radius: inherit;
@@ -682,13 +677,18 @@ th.check, td.check {
     text-shadow: 3px 3px rgb(var(--vtg-blue));
 }
 
-.more-content {
-    position: relative;
-    z-index: 300;
-    margin-top: calc((100vh - 75vh) / 2);
+.about {
+    background-color: rgb(var(--background-lighter));
+    width: 100%;
+    height: 50vh;
+    /* margin: 10vh 0; */
 }
 
+
+
+/* UNUSED */
 .wave {
+    z-index: -100;
     display: block;
     width: 100%;
     height: auto;
@@ -696,18 +696,8 @@ th.check, td.check {
     margin-top: -1px;
 }
 
-.more-content-container {
-    /* background-color: rgb(var(--background)); */
-    padding-bottom: 10vh;
-    min-height: 100vh;
-    width: 100vw;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
+/* UNUSED */
 .flex-down {
     display: flex;
     flex-direction: column;
@@ -716,6 +706,13 @@ th.check, td.check {
     text-align: center;
 }
 
+/* UNUSED */
+.centered {
+    position: absolute;
+    top:  25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 
 
@@ -738,7 +735,7 @@ th.check, td.check {
 
 
 /* --- THE SHADOWBOX CONTAINER --- */
-.project-board {
+.board {
     min-width: 85vw;
     max-width: 90vw;
     min-height: 80vh;
@@ -757,8 +754,8 @@ th.check, td.check {
 
 /* Stack into a single vertical column on narrow displays */
 @media (max-width: 1000px) {
-    .project-board {
-        grid-template-columns: minmax(0, 1fr);
+    .board {
+	grid-template-columns: minmax(0, 1fr);
     }
 }
 
@@ -786,7 +783,7 @@ th.check, td.check {
     padding: 20px;
     box-shadow: 2px 3px 10px rgba(0,0,0,0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+    /* cursor: pointer; */
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
