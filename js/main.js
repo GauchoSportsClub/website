@@ -1,20 +1,5 @@
 "use strict";
 
-const bg_image = $(".bg-image");
-const bg_solid = $(".bg-solid");
-// const header = $(".header");
-// const hero = $(".hero")
-// const card = $(".card")
-// let card_middle_initial;
-// $(window).on("resize", () => {
-//     card_middle_initial = card.offset().top + card.outerHeight() / 2
-//       - $(window).outerHeight() / 2;
-// });
-// $(window).on("load", () => {
-//     card_middle_initial = card.offset().top + card.outerHeight() / 2
-//       - $(window).outerHeight() / 2;
-// });
-
 const set_bg_solid_location = () => {
     $(".bg-solid").css({
 	"top": `calc(${$(".header").height()}px + 40vh + ${$(".hero").height()}px + ${$(".card").height()/2}px)`,
@@ -23,28 +8,6 @@ const set_bg_solid_location = () => {
 set_bg_solid_location();
 // $(window).on("load", set_bg_solid_location);
 $(window).on("resize", set_bg_solid_location);
-
-// // Fade background from image to solid
-// $(window).on("scroll", () => {
-    // const bg_top = $(".bg-image").offset().top;
-    // const opacity = 1 - 2 * bg_top / $(window).outerHeight();
-    // const ease = bezier(0.75, 0, 0.5, 1);
-    // const final_opacity = ease(clamp(opacity, 0, 1));
-    // const final_opacity = 0.33 * (1 + ease(clamp(opacity, 0, 1)));
-    // bg_solid.css("opacity", final_opacity);
-// });
-
-// // Make header background solid on solid bg and transparent on image bg
-// $(window).on("scroll", () => {
-//     const card_middle = card.offset().top + card.outerHeight() / 2
-// 	  - $(window).outerHeight() / 2 - $(window).scrollTop();
-//     const dy = 3; // seems to be about 1.8
-//     if (card_middle <= dy) {
-// 	header.css("background-color", "rgb(var(--background))");
-//     } else {
-// 	header.css("background-color", "transparent");
-//     }
-// });
 
 // Insert scorecard table with projects
 const project_overviews = [
