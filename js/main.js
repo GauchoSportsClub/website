@@ -293,12 +293,19 @@ function render_clippings() {
 	const random_angle = random(-3, 3);
 	const clipping = $("<div>", {
 	    class: `news-clipping template-${project.type}`,
-	    html: `<div class="clipping-inner" style="transform: rotate(${random_angle}deg)">
+	    html: `<div class="clipping-inner" style="transform: rotate(${random_angle}deg);">
 		       ${create_clipping_content(project)}
 		   </div>`
 	});
 	board.find(`.col-${project.col}`).append(clipping);
     };
+
+    $('.clipping-inner').each(function () {
+	for (let i = 1; i <= 5; i++) {
+	    this.style.setProperty(`--wear-x${i}`, `${random(0, 100)}%`);
+	    this.style.setProperty(`--wear-y${i}`, `${random(0, 100)}%`);
+	}
+    });
 }
 
 // Call the function to build the board

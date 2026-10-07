@@ -6,11 +6,16 @@
     --dark-blue: 2, 13, 25;
     --background: 24, 26, 27;	/*notion*/
     --background-lighter: 30, 32, 33;
+    --link: 10, 147, 245;
+    --link: var(--light-blue);
 
     --card: 216, 198, 160;	/*#d8c6a0*/
     --ink: 30, 27, 22;		/*#1e1b16*/
     --vtg-blue: 27, 74, 127;	/*#1b4a7f*/
     --vtg-gold: 200, 152, 65;	/*#ca9841*/
+    --clipping: 234, 221, 197;
+
+    --header-height: 6vh;
 
     color: white;
 }
@@ -59,19 +64,30 @@ body {
     /* opacity: 0%; */
 }
 
+.anchor {
+    scroll-margin-top: var(--header-height);
+    scroll-snap-margin-top: var(--header-height); /* iOS 11 and older */
+}
+
 header {
-    position: sticky;
+    width: 100%;
+    position: fixed;
     top: 0;
     z-index: 999;
     background-color: rgb(var(--background));
+    height: var(--header-height);
+    max-height: var(--header-height);
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .header-container {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 3.5vh;
-    padding:   2vh;
+    padding: 0 1%;
     /* padding-bottom: 1vh; */
     /* padding-left:  2vh; */
     /* padding-right: 2vh; */
@@ -82,14 +98,21 @@ header {
     align-items: center;
 }
 
+.header-left a {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 0;
+}
+
 .header-right{
-    width: 25vw;;
-    justify-content: space-evenly;
+    width: 20vw;
+    justify-content: space-between;
 }
 
 .logo {
     border-radius: 50%;
-    height: 5vh;
+    height: 3.5vh;
     background-color: white;
 }
 
@@ -182,12 +205,13 @@ main {
 }
 
 .card {
-    /* position: relative; */
+    position: relative;
     /* top: calc((100vh - 75vh) / 2); */
     /* z-index: 200; */
 
     /* margin-top: 70vh; */
-    height: 75vh;
+    max-height: 75vh;
+    max-width: 1500px;
     aspect-ratio: 1.618;
     border-radius: 1.5vw;
 
@@ -203,16 +227,16 @@ main {
 /* With a little help from Chat, vintage card effect overlay */
 .card::after {
     content: "";
-    /* position: absolute; */
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 299;
     inset: 0;
     border-radius: inherit;
-
     pointer-events: none;
 
     opacity: 1;
     mix-blend-mode: multiply;
-
     background:
 	radial-gradient(ellipse at 15% 80%, rgba(120,90,50,0.25) 0%, rgba(0,0,0,0) 25%),
 	radial-gradient(ellipse at 70% 98%, rgba(120,90,50,0.25) 0%, rgba(0,0,0,0) 27%),
@@ -220,7 +244,7 @@ main {
 	radial-gradient(ellipse at 08% 62%, rgba(120,90,50,0.25) 0%, rgba(0,0,0,0) 37%),
 	radial-gradient(ellipse at 56% 73%, rgba(120,90,50,0.25) 0%, rgba(0,0,0,0) 39%),
 	url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.75'/%3E%3C/svg%3E");
-    background-repeat: no-repeat no-repeat no-repeat no-repeat no-repeat repeat;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat;
     background-size:
 	auto,
 	auto,
@@ -319,7 +343,7 @@ main {
 }
 
 .bw1 {
-    text-align: left;   
+    text-align: left;
 }
 
 .bw3, .bw4 {
@@ -497,7 +521,7 @@ main {
 
 .ledger th, .ledger td {
     border: 1px solid rgb(var(--ink));
-    border-collapse: collapse;   
+    border-collapse: collapse;
     padding: .5%;
 }
 
@@ -507,7 +531,7 @@ main {
     text-align: left;
     font-weight: 500;
 }
-    
+
 .ledger td {
 }
 
@@ -678,13 +702,117 @@ th.check, td.check {
 }
 
 .about {
-    background-color: rgb(var(--background-lighter));
     width: 100%;
-    height: 50vh;
-    /* margin: 10vh 0; */
+    padding: 2% 0;
+    background-color: rgb(var(--background-lighter));
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+.about-stats-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
+.about-stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1% 2%;
+}
+
+.about-number {
+    font-size: 7em;
+    font-family: "Domine";
+    font-weight: 900;
+}
+
+.about-number::after {
+    content: "+";
+}
+
+.about-stat-desc {
+    font-family: "Lora";
+}
+
+.join {
+    width: 100%;
+    padding: 2% 0;
+    background-color: rgb(var(--background));
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.join-vspace {
+    min-height: 2em;
+}
+
+.join-anyone {
+    font-size: 3em;
+}
+.join-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.join-box-left, .join-box-right {
+    font-size: 1.75em;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.join-box-left {
+    text-align: left;
+    text-align: center;
+}
+.join-box-right {
+    text-align: right;
+    text-align: center;
+}
+
+.join-hspace {
+    width: 5%;
+}
+
+.discord-instagram-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 1em;
+}
+
+.email-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.contact {
+    color: rgb(var(--link));
+}
+
+.contact::after {
+    display: inline-flex;
+    content: "";
+    background: rgb(var(--link));
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--%3E%3Cpath fill='rgb(10, 147, 245)' d='M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    height: 1em;
+    width: 1em;
+    padding-top: 5px;
+    margin-left: 10px;
+    vertical-align: -33%;
+}
 
 /* UNUSED */
 .wave {
@@ -728,13 +856,17 @@ th.check, td.check {
 
 
 
-
+.board-bg-wrapper {
+    width: 100vw;
+    height: 100%;
+    background-color: rgb(var(--background-lighter));
+    display: flex;
+    justify-content: center;
+}
 
 /* 90% AI From here :) */
 /* I'm a prompt warrior */
 
-
-/* --- THE SHADOWBOX CONTAINER --- */
 .board {
     min-width: 85vw;
     max-width: 90vw;
@@ -746,7 +878,6 @@ th.check, td.check {
     padding: 30px;
     box-sizing: border-box;
 
-    /* THE NEW GRID LAYOUT (1fr = small side, 2fr = wide middle, 1fr = small side) */
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
     gap: 30px;
@@ -759,51 +890,66 @@ th.check, td.check {
     }
 }
 
-/* --- THE FLEX COLUMNS --- */
 .board-col {
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-evenly;
-    gap: 40px; /* This is the vertical space between clippings! */
+    align-items: center;
+    gap: 30px;
 }
 
-/* --- 1. THE OUTER WRAPPER --- */
-/* Removes Packery sizing, lets it fill the Flex column perfectly */
 .news-clipping {
+    position: relative;
     box-sizing: border-box;
     width: 100%;
 }
 
-/* --- 2. THE INNER CLIPPING --- */
 .clipping-inner {
-    background-color: #eaddc5;
-    color: #1a1a1a;
+    background-color: rgb(var(--clipping));
+    color: rgb(var(--ink));
     padding: 20px;
     box-shadow: 2px 3px 10px rgba(0,0,0,0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* cursor: pointer; */
     width: 100%;
     box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
+}
+
+.clipping-inner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 299;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 1;
+  mix-blend-mode: multiply;
+
+  background:
+    radial-gradient(ellipse at var(--wear-x1) var(--wear-y1), rgba(120,90,50,.15) 0%, transparent 25%),
+    radial-gradient(ellipse at var(--wear-x2) var(--wear-y2), rgba(120,90,50,.15) 0%, transparent 27%),
+    radial-gradient(ellipse at var(--wear-x3) var(--wear-y3), rgba(120,90,50,.15) 0%, transparent 48%),
+    radial-gradient(ellipse at var(--wear-x4) var(--wear-y4), rgba(120,90,50,.15) 0%, transparent 37%),
+    radial-gradient(ellipse at var(--wear-x5) var(--wear-y5), rgba(120,90,50,.15) 0%, transparent 39%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.75'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+  background-size: auto, auto, auto, auto, auto, 180px 180px;
 }
 
 .clipping-inner:hover {
+    position: relative;
     transform: scale(1.05) rotate(0deg) !important;
     box-shadow: 5px 10px 20px rgba(0,0,0,0.6);
     z-index: 10;
-    position: relative;
 }
 
 .template-image .clipping-inner {
     padding: 10px;
-    background-color: #f4f1ea;
+    background-color: rgb(var(--clipping));
 }
 
-
-/* --- TEMPLATE STYLES --- */
-/* Remove explicit max-widths so they stretch fluidly into the Packery percentages */
 .template-feature, .template-simple, .template-column, .template-image,
 .template-plaque {
     max-width: none;
