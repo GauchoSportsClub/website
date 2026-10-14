@@ -128,20 +128,16 @@ for (let i = 0; i < num_cols; ++i) {
 
 const past_projects = [
     {
+	type: "plaque",
+	col: "left",
+	title: "Project Showcase",
+	subtitle: "Gaucho Sports Analytics",
+	class: "mobile-show",
+    },
+    {
 	type: "image",
 	col: "left",
 	src: "./resources/images/jackson_flora.jpg",
-    },
-    {
-	type: "plaque",
-	col: "center",
-	title: "Project Showcase",
-	subtitle: "Gaucho Sports Analytics"
-    },
-    {
-	type: "image",
-	col: "right",
-	src: "./resources/images/basketball.jpg",
     },
     {
 	type: "simple",
@@ -150,6 +146,18 @@ const past_projects = [
 	author: "JOE GAUCHO",
 	date: "May 2026",
 	content: `We set out on this project with a goal of quantifying the concept of "Pitch Decay," where a pitcher's expected run prevention drops due to batter familiarity despite their pitch quality remaining constant. We conducted this study by analyzing college data to quantify the Time Through the Order Penalty (TTOP) and hitter familiarity with specific pitch types. In doing so, we discovered a twist, the pitch decay that pitchers suffer in professional baseball doesn't actually have a meaningful effect on the college game. We concluded this is likely due to college starters having shorter outings and facing a completely different competitive landscape.`
+    },
+    {
+	type: "image",
+	col: "left",
+	src: "./resources/images/soccer_celebration.jpg",
+    },
+    {
+	type: "plaque",
+	col: "center",
+	title: "Project Showcase",
+	subtitle: "Gaucho Sports Analytics",
+	class: "mobile-hide",
     },
     {
 	type: "feature",
@@ -174,6 +182,11 @@ To improve temporal consistency, a separate player-processing pipeline was built
 Overall, the project showed how strongly sports computer vision models depend on the distribution of their training data. Rather than relying entirely on models trained on cleaner broadcast footage, we collected and annotated data representative of UCSB soccer games, retrained the underlying detectors, and tested different approaches for making player and pitch detections more stable over time.`
     },
     {
+	type: "image",
+	col: "right",
+	src: "./resources/images/baseball.jpg",
+    },
+    {
 	type: "column",
 	col: "right",
 	title: "Transfer Player Evaluation",
@@ -183,13 +196,8 @@ Overall, the project showed how strongly sports computer vision models depend on
     },
     {
 	type: "image",
-	col: "left",
-	src: "./resources/images/soccer_celebration.jpg",
-    },
-    {
-	type: "image",
 	col: "right",
-	src: "./resources/images/baseball.jpg",
+	src: "./resources/images/basketball.jpg",
     },
     // {
 	// type: "simple",
@@ -255,7 +263,7 @@ function render_clippings() {
     for (const project of past_projects) {
 	const random_angle = random(-3, 3);
 	const clipping = $("<div>", {
-	    class: `news-clipping template-${project.type}`,
+	    class: `news-clipping template-${project.type} ${project.class}`,
 	    html: `<div class="clipping-inner" style="transform: rotate(${random_angle}deg);">
 		       ${create_clipping_content(project)}
 		   </div>`
